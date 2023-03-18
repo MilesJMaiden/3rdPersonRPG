@@ -12,7 +12,7 @@ public abstract class StateMachine : MonoBehaviour //Stores current state that w
         
     }
 
-    void SwitchState(State newState)
+    public void SwitchState(State newState)
     {
         currentState?.Exit();
         currentState = newState;

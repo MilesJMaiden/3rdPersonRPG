@@ -7,12 +7,6 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SwitchState(new PlayerTestState(this));
     }
 }
