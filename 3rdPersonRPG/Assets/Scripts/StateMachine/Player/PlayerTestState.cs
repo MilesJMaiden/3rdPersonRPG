@@ -15,26 +15,42 @@ public class PlayerTestState : PlayerBaseState
     public override void Enter()
     {
         //Debug.Log("Enter");
-        stateMachine.InputReader.jumpEvent += OnJump; //Subscribe
+        //stateMachine.InputReader.jumpEvent += OnJump; //Subscribe
     }
 
 
     public override void Tick(float deltaTime)
     {
-        timer += deltaTime;
+        //timer += deltaTime;
+        //Debug.Log(timer);
 
-        Debug.Log(timer);
+        Vector3 movement = new Vector3();
+
+        movement.x = stateMachine.InputReader.movementValue.x;
+        movement.y = 0;
+        movement.z = stateMachine.InputReader.movementValue.y;
+
+        stateMachine.characterController.Move(movement * stateMachine.freeLookMovementSpeed * deltaTime);
+
+        if(stateMachine.InputReader.movementValue == Vector2.zero) //If the player is not moving, we do not want to rotate them
+        {
+            stateMachine.animator.SetFloat("FreeLookSpeed", 0, 0.1f, deltaTime);
+            return; 
+        }
+
+        stateMachine.animator.SetFloat("FreeLookSpeed", 1, 0.1f, deltaTime);
+        stateMachine.transform.rotation = Quaternion.LookRotation(movement); //player will rotate in the movement direction
 
     }
 
     public override void Exit()
     {
         //Debug.Log("Exit");
-        stateMachine.InputReader.jumpEvent -= OnJump; //UNSubscribe
+        //stateMachine.InputReader.jumpEvent -= OnJump; //UNSubscribe
     }
 
-    private void OnJump()
-    {
-        stateMachine.SwitchState(new PlayerTestState(stateMachine));
-    }
+    //private void OnJump()
+    //{
+        //stateMachine.SwitchState(new PlayerTestState(stateMachine));
+    //}
 }
