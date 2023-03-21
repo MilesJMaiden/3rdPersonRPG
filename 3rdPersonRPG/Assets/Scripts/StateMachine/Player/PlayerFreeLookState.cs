@@ -18,6 +18,8 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         //Debug.Log("Enter");
         //stateMachine.InputReader.jumpEvent += OnJump; //Subscribe
+
+        stateMachine.InputReader.targetEvent += OnTarget;
     }
 
 
@@ -45,6 +47,13 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         //Debug.Log("Exit");
         //stateMachine.InputReader.jumpEvent -= OnJump; //UNSubscribe
+
+        stateMachine.InputReader.targetEvent -= OnTarget;
+    }
+
+    private void OnTarget()
+    {
+        stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
     }
 
     private Vector3 CalculateMovement()
