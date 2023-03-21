@@ -13,9 +13,15 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
 
     [field: SerializeField] public float freeLookMovementSpeed { get; private set; }
 
+    [field: SerializeField] public float playerRotationSpeed { get; private set; }
+
+    public Transform mainCameraTransform { get; private set; }
+
     // Start is called before the first frame update
     void Start()
     {
-        SwitchState(new PlayerTestState(this));
+        mainCameraTransform = Camera.main.transform;
+
+        SwitchState(new PlayerFreeLookState(this));
     }
 }

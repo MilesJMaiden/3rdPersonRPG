@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// CTRL + . To implement method after adding to Unity Input
 public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
 {
     public Vector2 movementValue { get; private set; }
@@ -44,5 +45,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
     public void OnMove(InputAction.CallbackContext context)
     {
         movementValue = context.ReadValue<Vector2>();
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        
     }
 }
