@@ -41,8 +41,6 @@ public class PlayerFreeLookState : PlayerBaseState
 
     }
 
-
-
     public override void Exit()
     {
         //Debug.Log("Exit");
@@ -67,9 +65,4 @@ public class PlayerFreeLookState : PlayerBaseState
     {
         stateMachine.transform.rotation = Quaternion.Lerp(stateMachine.transform.rotation, Quaternion.LookRotation(movement), deltaTime * stateMachine.playerRotationSpeed); //player will rotate in the movement direction
     }
-
-    //private void OnJump()
-    //{
-    //stateMachine.SwitchState(new PlayerTestState(stateMachine));
-    //}
 }
