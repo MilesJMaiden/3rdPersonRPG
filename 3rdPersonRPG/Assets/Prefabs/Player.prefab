@@ -751,6 +751,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4830e62f423ba0c47a27a114d546e30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cinemachineTargetGroup: {fileID: 0}
+  targets: []
 --- !u!135 &2249631868638698310
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2576,8 +2578,9 @@ MonoBehaviour:
   <InputReader>k__BackingField: {fileID: 3573709741430294433}
   <characterController>k__BackingField: {fileID: 4475951962431837145}
   <animator>k__BackingField: {fileID: 3573709741430294366}
+  <Targeter>k__BackingField: {fileID: 5362678459112396224}
   <freeLookMovementSpeed>k__BackingField: 6
-  <playerRotationSpeed>k__BackingField: 0
+  <playerRotationSpeed>k__BackingField: 10
 --- !u!114 &3573709741430294433
 MonoBehaviour:
   m_ObjectHideFlags: 0

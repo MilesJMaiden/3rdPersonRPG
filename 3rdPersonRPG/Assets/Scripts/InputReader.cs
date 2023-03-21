@@ -9,11 +9,11 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
 {
     public Vector2 movementValue { get; private set; }
 
-    public event Action jumpEvent;
-    public event Action dodgeEvent;
+    public event Action JumpEvent;
+    public event Action DodgeEvent;
 
-    public event Action targetEvent;
-    public event Action cancelEvent;
+    public event Action TargetEvent;
+    public event Action CancelEvent;
     
 
     private Controls controls;
@@ -35,14 +35,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
     {
         if(!context.performed) { return; } //Performed = pressed (Spacebar or Button South)
         //If nobody is subcribed to an event, an error can occur
-        jumpEvent?.Invoke();       
+        JumpEvent?.Invoke();       
     }
 
     public void OnDodge(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; } //Performed = pressed (Left Ctrl)
         //If nobody is subcribed to an event, an error can occur
-        dodgeEvent?.Invoke();
+        DodgeEvent?.Invoke();
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -59,13 +59,13 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
     {
         if(!context.performed) { return; }
 
-        targetEvent?.Invoke();
+        TargetEvent?.Invoke();
     }
 
     public void OnCancel(InputAction.CallbackContext context)
     {
         if (!context.performed) { return; }
 
-        cancelEvent?.Invoke();
+        CancelEvent?.Invoke();
     }
 }

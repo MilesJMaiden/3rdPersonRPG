@@ -7,6 +7,8 @@ using UnityEngine.Rendering;
 //This will be the framework for every state and this is where I will write the player logic
 public class PlayerFreeLookState : PlayerBaseState
 {
+    private readonly int freeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
+
     private readonly int freeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
 
     public float animatorSmoothTransition = 0.1f; 
@@ -19,7 +21,9 @@ public class PlayerFreeLookState : PlayerBaseState
         //Debug.Log("Enter");
         //stateMachine.InputReader.jumpEvent += OnJump; //Subscribe
 
-        stateMachine.InputReader.targetEvent += OnTarget;
+        stateMachine.InputReader.TargetEvent += OnTarget;
+
+        stateMachine.animator.Play(freeLookBlendTreeHash);
     }
 
 
@@ -48,11 +52,15 @@ public class PlayerFreeLookState : PlayerBaseState
         //Debug.Log("Exit");
         //stateMachine.InputReader.jumpEvent -= OnJump; //UNSubscribe
 
-        stateMachine.InputReader.targetEvent -= OnTarget;
+        stateMachine.InputReader.TargetEvent -= OnTarget;
     }
 
     private void OnTarget()
     {
+        if(!stateMachine.Targeter.SelectTarget()) { return; }
+
+        //Only enters the targetting state if we succesfully select a target
+
         stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
     }
 

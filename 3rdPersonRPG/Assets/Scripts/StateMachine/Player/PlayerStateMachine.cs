@@ -11,6 +11,8 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
 
     [field: SerializeField] public Animator animator { get; private set; }
 
+    [field: SerializeField] public Targeter Targeter { get; private set; }
+
     [field: SerializeField] public float freeLookMovementSpeed { get; private set; }
 
     [field: SerializeField] public float playerRotationSpeed { get; private set; }
