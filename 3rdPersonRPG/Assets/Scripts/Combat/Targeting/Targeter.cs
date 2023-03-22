@@ -10,7 +10,14 @@ public class Targeter : MonoBehaviour
     [SerializeField] private CinemachineTargetGroup cinemachineTargetGroup;
 
     [SerializeField] private List<Target> targets = new List<Target>();
+
+    private Camera mainCamera;
     public Target currentTarget { get; private set; } //currentTarget can on be set in this script
+
+    private void Start()
+    {
+        mainCamera = Camera.main;
+    }
 
     private void OnTriggerEnter(Collider other) //Unity method - when something enters collider
     {
@@ -43,8 +50,35 @@ public class Targeter : MonoBehaviour
     {
         if(targets.Count == 0) { return false; }
 
-        currentTarget = targets[0];
+        Target closestTarget = null;
+        float closestTargetDistance = Mathf.Infinity;
 
+        //loop through all targets to identify which is closest to the middle of view
+        foreach (Target target in targets) 
+        {
+            Vector2 viewPosition = mainCamera.WorldToViewportPoint(target.transform.position);   
+            
+            //if its visible to the player
+            if(viewPosition.x < 0 || viewPosition.x > 1 || viewPosition.y < 0 || viewPosition.y > 1)
+            {
+                continue;
+            }
+
+            currentTarget = targets[0];
+
+            //how far from center
+            Vector2 toCenter = viewPosition - new Vector2(0.5f, 0.5f);
+            //Magnitude tells you how big a vector is //SqrMagnitude is more optimal
+            if(toCenter.sqrMagnitude <  closestTargetDistance)
+            {
+                closestTarget = target;
+                closestTargetDistance = toCenter.sqrMagnitude;
+            }
+        } 
+
+        if(closestTarget == null) { return false; } // we wont enter target state (no target)
+
+        currentTarget = closestTarget;
         cinemachineTargetGroup.AddMember(currentTarget.transform, 1f, 2f);
 
         return true;
