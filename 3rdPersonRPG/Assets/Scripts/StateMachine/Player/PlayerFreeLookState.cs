@@ -34,7 +34,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
         Vector3 movement = CalculateMovement();
 
-        stateMachine.characterController.Move(movement * stateMachine.freeLookMovementSpeed * deltaTime);
+        Move(movement * stateMachine.freeLookMovementSpeed, deltaTime);
 
         if (stateMachine.InputReader.movementValue == Vector2.zero) //If the player is not moving, we do not want to rotate them
         {
