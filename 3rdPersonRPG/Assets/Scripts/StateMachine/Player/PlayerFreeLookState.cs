@@ -32,6 +32,12 @@ public class PlayerFreeLookState : PlayerBaseState
         //timer += deltaTime;
         //Debug.Log(timer);
 
+        if (stateMachine.InputReader.isAttacking) //remove this if IF you want to only atack while targetting
+        {
+            stateMachine.SwitchState(new PlayerAttackingState(stateMachine));
+            return;
+        }
+
         Vector3 movement = CalculateMovement();
 
         Move(movement * stateMachine.freeLookMovementSpeed, deltaTime);

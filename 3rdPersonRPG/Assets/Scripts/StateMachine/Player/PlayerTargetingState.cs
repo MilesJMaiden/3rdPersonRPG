@@ -21,6 +21,12 @@ public class PlayerTargetingState : PlayerBaseState
     {
         //Debug.Log(stateMachine.Targeter.currentTarget.name);
 
+        if(stateMachine.InputReader.isAttacking)
+        {
+            stateMachine.SwitchState(new PlayerAttackingState(stateMachine));
+            return;
+        }
+
         if(stateMachine.Targeter.currentTarget == null)
         {
             stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));

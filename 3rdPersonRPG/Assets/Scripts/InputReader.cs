@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 // CTRL + . To implement method after adding to Unity Input
 public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
 {
+    public bool isAttacking { get; private set; }
+
     public Vector2 movementValue { get; private set; }
 
     public event Action JumpEvent;
@@ -67,5 +69,17 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
         if (!context.performed) { return; }
 
         CancelEvent?.Invoke();
+    }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isAttacking = true;
+        }
+        else if (context.canceled)
+        {
+            isAttacking = false;
+        }
     }
 }
