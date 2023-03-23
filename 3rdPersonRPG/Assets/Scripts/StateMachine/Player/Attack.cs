@@ -13,4 +13,8 @@ public class Attack //data for each attack
     [field: SerializeField] public int ComboStateIndex { get; private set; } = -1; // property
 
     [field: SerializeField] public float ComboAttackTime { get; private set; } // property
+
+    [field: SerializeField] public float ForceTime { get; private set; } // property
+
+    [field: SerializeField] public float Force { get; private set; } // property
 }

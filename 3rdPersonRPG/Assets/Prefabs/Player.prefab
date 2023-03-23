@@ -765,7 +765,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &3657798539280126525
 Rigidbody:
@@ -2670,17 +2670,23 @@ MonoBehaviour:
   <playerRotationSpeed>k__BackingField: 10
   <Attacks>k__BackingField:
   - <AnimationName>k__BackingField: Attack1
-    <TransitionDuration>k__BackingField: 0.2
+    <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
     <ComboAttackTime>k__BackingField: 0.6
+    <ForceTime>k__BackingField: 0.35
+    <Force>k__BackingField: 15
   - <AnimationName>k__BackingField: Attack2
-    <TransitionDuration>k__BackingField: 0.2
+    <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
     <ComboAttackTime>k__BackingField: 0.5
+    <ForceTime>k__BackingField: 5
+    <Force>k__BackingField: 15
   - <AnimationName>k__BackingField: Attack3
-    <TransitionDuration>k__BackingField: 0.8
+    <TransitionDuration>k__BackingField: 0.2
     <ComboStateIndex>k__BackingField: -1
     <ComboAttackTime>k__BackingField: 0
+    <ForceTime>k__BackingField: 5
+    <Force>k__BackingField: 20
 --- !u!114 &3573709741430294433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2724,6 +2730,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 4475951962431837145}
+  drag: 0.1
 --- !u!1 &7891862704067679163
 GameObject:
   m_ObjectHideFlags: 0
