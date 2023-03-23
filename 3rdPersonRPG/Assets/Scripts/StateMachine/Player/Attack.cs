@@ -7,4 +7,10 @@ using UnityEngine;
 public class Attack //data for each attack
 {
     [field: SerializeField] public string AnimationName { get; private set; } // property
+
+    [field: SerializeField] public float TransitionDuration { get; private set; } // property
+
+    [field: SerializeField] public int ComboStateIndex { get; private set; } = -1; // property
+
+    [field: SerializeField] public float ComboAttackTime { get; private set; } // property
 }

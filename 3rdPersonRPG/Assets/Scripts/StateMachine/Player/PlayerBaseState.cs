@@ -11,6 +11,11 @@ public abstract class PlayerBaseState : State
        this.stateMachine = stateMachine;
     }
 
+    protected void Move(float deltaTime)
+    {
+        Move(Vector3.zero, deltaTime);
+    }
+
     protected void Move(Vector3 motion, float deltaTime)
     {
         stateMachine.characterController.Move((motion + stateMachine.ForceReceiver.movement) * deltaTime);
@@ -18,7 +23,7 @@ public abstract class PlayerBaseState : State
 
     protected void FaceTarget() {
 
-        if (stateMachine.Targeter == null) { return; } //do not run
+        if (stateMachine.Targeter.currentTarget == null) { return; } //do not run
 
         Vector3 lookPosition = stateMachine.Targeter.currentTarget.transform.position - stateMachine.transform.position; //The vector pointing from player to target 
         lookPosition.y = 0;
