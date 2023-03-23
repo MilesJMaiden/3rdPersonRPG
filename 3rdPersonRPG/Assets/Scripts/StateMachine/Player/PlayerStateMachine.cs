@@ -15,6 +15,8 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
 
     [field: SerializeField] public ForceReceiver ForceReceiver { get; private set; }
 
+    [field: SerializeField] public WeaponDamage Weapon { get; private set; }
+
     [field: SerializeField] public float freeLookMovementSpeed { get; private set; }
 
     [field: SerializeField] public float targetingMovementSpeed { get; private set; }

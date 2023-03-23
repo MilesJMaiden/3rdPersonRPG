@@ -11,7 +11,9 @@ public class PlayerFreeLookState : PlayerBaseState
 
     private readonly int freeLookSpeedHash = Animator.StringToHash("FreeLookSpeed");
 
-    public float animatorSmoothTransition = 0.1f; 
+    public float animatorSmoothTransition = 0.1f;
+
+    private const float crossFadeDuration = 0.1f;
     public PlayerFreeLookState(PlayerStateMachine stateMachine) : base(stateMachine) //call the base constructor passing in the needed state machine and caching it 
     {
     }
@@ -23,7 +25,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
         stateMachine.InputReader.TargetEvent += OnTarget;
 
-        stateMachine.animator.Play(freeLookBlendTreeHash);
+        stateMachine.animator.CrossFadeInFixedTime(freeLookBlendTreeHash, crossFadeDuration);
     }
 
 
