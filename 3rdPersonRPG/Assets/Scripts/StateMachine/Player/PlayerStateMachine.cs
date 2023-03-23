@@ -21,6 +21,8 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
 
     [field: SerializeField] public float playerRotationSpeed { get; private set; }
 
+    [field: SerializeField] public Attack[] Attacks { get; private set; }
+
     public Transform mainCameraTransform { get; private set; }
 
     // Start is called before the first frame update

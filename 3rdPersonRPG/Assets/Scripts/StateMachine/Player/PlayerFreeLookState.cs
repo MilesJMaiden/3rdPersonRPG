@@ -34,7 +34,7 @@ public class PlayerFreeLookState : PlayerBaseState
 
         if (stateMachine.InputReader.isAttacking) //remove this if IF you want to only atack while targetting
         {
-            stateMachine.SwitchState(new PlayerAttackingState(stateMachine));
+            stateMachine.SwitchState(new PlayerAttackingState(stateMachine, 0));
             return;
         }
 
