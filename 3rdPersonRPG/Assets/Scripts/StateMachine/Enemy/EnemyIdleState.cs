@@ -21,6 +21,16 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
+        Move(deltaTime);
+
+        if(IsInDetectionRange())
+        {
+
+            Debug.Log("In Range of Player");
+            //Transitioin to chase state
+            return;
+        }
+
         stateMachine.animator.SetFloat(speedHash, 0f, animatorDampTime, deltaTime);
     }
 

@@ -10,4 +10,20 @@ public abstract class EnemyBaseState : State
     {
         this.stateMachine = stateMachine;
     }
+
+    protected void Move(float deltaTime)
+    {
+        Move(Vector3.zero, deltaTime);
+    }
+
+    protected void Move(Vector3 motion, float deltaTime)
+    {
+        stateMachine.characterController.Move((motion + stateMachine.ForceReceiver.movement) * deltaTime);
+    }
+
+    protected bool IsInDetectionRange()
+    {
+        float playerDistanceSqr = (stateMachine.player.transform.position - stateMachine.transform.position).sqrMagnitude;
+        return playerDistanceSqr <= stateMachine.playerDetectionRange * stateMachine.playerDetectionRange;
+    }
 }
