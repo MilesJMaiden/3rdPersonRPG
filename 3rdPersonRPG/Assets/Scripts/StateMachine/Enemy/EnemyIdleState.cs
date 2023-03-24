@@ -26,8 +26,9 @@ public class EnemyIdleState : EnemyBaseState
         if(IsInDetectionRange())
         {
 
-            Debug.Log("In Range of Player");
+            //Debug.Log("In Range of Player");
             //Transitioin to chase state
+            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
             return;
         }
 
