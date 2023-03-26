@@ -25,16 +25,27 @@ public class EnemyChasingState : EnemyBaseState
 
         if (!IsInDetectionRange())
         {
-            //Debug.Log("In Range of Player");
-
             stateMachine.SwitchState(new EnemyIdleState(stateMachine));
-            //Transitioin to chase state
+            return;
+        }
+        else if (IsInAttackRange())
+        {
+            stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
             return;
         }
 
         MoveToPlayer(deltaTime);
 
+        FacePlayer();
+
         stateMachine.animator.SetFloat(speedHash, 1f, animatorDampTime, deltaTime);
+    }
+
+    private bool IsInAttackRange()
+    {
+        float playerDistanceSqr = (stateMachine.player.transform.position - stateMachine.transform.position).sqrMagnitude;
+
+        return playerDistanceSqr <= stateMachine.attackRange * stateMachine.attackRange;
     }
 
     private void MoveToPlayer(float deltaTime)

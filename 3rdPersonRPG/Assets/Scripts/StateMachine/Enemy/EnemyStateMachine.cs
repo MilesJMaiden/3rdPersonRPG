@@ -18,6 +18,8 @@ public class EnemyStateMachine : StateMachine
 
     [field: SerializeField] public float playerDetectionRange { get; private set; }
 
+    [field: SerializeField] public float attackRange { get; private set; }
+
     public GameObject player { get; private set; }
 
     void Start()

@@ -21,6 +21,17 @@ public abstract class EnemyBaseState : State
         stateMachine.characterController.Move((motion + stateMachine.ForceReceiver.movement) * deltaTime);
     }
 
+    protected void FacePlayer()
+    {
+        if (stateMachine.player == null) { return; } //do not run
+
+        Vector3 lookPosition = stateMachine.player.transform.position - stateMachine.transform.position; //The vector pointing from player to target 
+        lookPosition.y = 0;
+
+        //Convert to Quaternion
+        stateMachine.transform.rotation = Quaternion.LookRotation(lookPosition);
+    }
+
     protected bool IsInDetectionRange()
     {
         float playerDistanceSqr = (stateMachine.player.transform.position - stateMachine.transform.position).sqrMagnitude;
