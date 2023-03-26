@@ -14,11 +14,15 @@ public class EnemyStateMachine : StateMachine
 
     [field: SerializeField] public NavMeshAgent Agent { get; private set; }
 
+    [field: SerializeField] public WeaponDamage weapon { get; private set; }
+
     [field: SerializeField] public float movementSpeed { get; private set; }
 
     [field: SerializeField] public float playerDetectionRange { get; private set; }
 
     [field: SerializeField] public float attackRange { get; private set; }
+
+    [field: SerializeField] public int attackDamage { get; private set; }
 
     public GameObject player { get; private set; }
 
