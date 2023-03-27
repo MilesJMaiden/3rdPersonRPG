@@ -17,6 +17,8 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
 
     [field: SerializeField] public WeaponDamage Weapon { get; private set; }
 
+    [field: SerializeField] public Health health { get; private set; }
+
     [field: SerializeField] public float freeLookMovementSpeed { get; private set; }
 
     [field: SerializeField] public float targetingMovementSpeed { get; private set; }
@@ -33,5 +35,20 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
         mainCameraTransform = Camera.main.transform;
 
         SwitchState(new PlayerFreeLookState(this));
+    }
+
+    private void OnEnable()
+    {
+        health.onTakeDamage += HandleTakeDamage;
+    }
+
+    private void OnDisable()
+    {
+        health.onTakeDamage -= HandleTakeDamage;
+    }
+
+    private void HandleTakeDamage()
+    {
+        SwitchState(new PlayerImpactState(this));
     }
 }

@@ -16,6 +16,8 @@ public class EnemyStateMachine : StateMachine
 
     [field: SerializeField] public WeaponDamage weapon { get; private set; }
 
+    [field: SerializeField] public Health health { get; private set; }
+
     [field: SerializeField] public float movementSpeed { get; private set; }
 
     [field: SerializeField] public float playerDetectionRange { get; private set; }
@@ -38,9 +40,28 @@ public class EnemyStateMachine : StateMachine
         SwitchState(new EnemyIdleState(this));
     }
 
+    private void OnEnable()
+    {
+        health.onTakeDamage += HandleTakeDamage;
+    } 
+    
+    private void OnDisable()
+    {
+        health.onTakeDamage -= HandleTakeDamage;
+    }
+
+    private void HandleTakeDamage()
+    {
+        SwitchState(new EnemyImpactState(this));
+    }
+
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, playerDetectionRange);
     }
+
+
 }
