@@ -9,7 +9,8 @@ public class EnemyDeadState : EnemyBaseState
     public override void Enter()
     {
         //toggle ragodll
-
+        //toggle ragodll
+        stateMachine.ragdoll.ToggleRagdoll(true);
 
         //disable weapon
         stateMachine.weapon.gameObject.SetActive(false);

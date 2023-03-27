@@ -19,6 +19,8 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
 
     [field: SerializeField] public Health health { get; private set; }
 
+    [field: SerializeField] public Ragdoll ragdoll { get; private set; }
+
     [field: SerializeField] public float freeLookMovementSpeed { get; private set; }
 
     [field: SerializeField] public float targetingMovementSpeed { get; private set; }
