@@ -43,6 +43,8 @@ public class EnemyChasingState : EnemyBaseState
 
     private bool IsInAttackRange()
     {
+        if(stateMachine.player.isDead) { return false; }
+
         float playerDistanceSqr = (stateMachine.player.transform.position - stateMachine.transform.position).sqrMagnitude;
 
         return playerDistanceSqr <= stateMachine.attackRange * stateMachine.attackRange;

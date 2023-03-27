@@ -59,7 +59,7 @@ public class Targeter : MonoBehaviour
             Vector2 viewPosition = mainCamera.WorldToViewportPoint(target.transform.position);   
             
             //if its visible to the player
-            if(viewPosition.x < 0 || viewPosition.x > 1 || viewPosition.y < 0 || viewPosition.y > 1)
+            if(!target.GetComponentInChildren<Renderer>().isVisible)
             {
                 continue;
             }

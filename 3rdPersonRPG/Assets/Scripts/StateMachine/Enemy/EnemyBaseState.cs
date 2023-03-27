@@ -34,6 +34,8 @@ public abstract class EnemyBaseState : State
 
     protected bool IsInDetectionRange()
     {
+        if(stateMachine.player.isDead) { return false; }
+
         float playerDistanceSqr = (stateMachine.player.transform.position - stateMachine.transform.position).sqrMagnitude;
         return playerDistanceSqr <= stateMachine.playerDetectionRange * stateMachine.playerDetectionRange;
     }
