@@ -20,4 +20,6 @@ public class Attack //data for each attack
 
     [field: SerializeField] public int Damage { get; private set; } // property
 
+    [field: SerializeField] public float Knockback { get; private set; } // property
+
 }
