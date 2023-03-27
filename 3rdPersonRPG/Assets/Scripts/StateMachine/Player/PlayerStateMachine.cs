@@ -40,15 +40,22 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
     private void OnEnable()
     {
         health.onTakeDamage += HandleTakeDamage;
+        health.onDeath += HandleDeath;
     }
 
     private void OnDisable()
     {
         health.onTakeDamage -= HandleTakeDamage;
+        health.onDeath -= HandleDeath;
     }
 
     private void HandleTakeDamage()
     {
         SwitchState(new PlayerImpactState(this));
+    }
+
+    private void HandleDeath()
+    {
+        SwitchState(new PlayerDeadState(this));
     }
 }

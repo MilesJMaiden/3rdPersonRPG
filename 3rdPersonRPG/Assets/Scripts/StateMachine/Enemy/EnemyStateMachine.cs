@@ -18,6 +18,8 @@ public class EnemyStateMachine : StateMachine
 
     [field: SerializeField] public Health health { get; private set; }
 
+    [field: SerializeField] public Target target { get; private set; }
+
     [field: SerializeField] public float movementSpeed { get; private set; }
 
     [field: SerializeField] public float playerDetectionRange { get; private set; }
@@ -43,11 +45,13 @@ public class EnemyStateMachine : StateMachine
     private void OnEnable()
     {
         health.onTakeDamage += HandleTakeDamage;
+        health.onDeath += HandleDeath;
     } 
     
     private void OnDisable()
     {
         health.onTakeDamage -= HandleTakeDamage;
+        health.onDeath -= HandleDeath;
     }
 
     private void HandleTakeDamage()
@@ -55,7 +59,10 @@ public class EnemyStateMachine : StateMachine
         SwitchState(new EnemyImpactState(this));
     }
 
-
+    private void HandleDeath()
+    {
+        SwitchState(new EnemyDeadState(this));
+    }
 
     private void OnDrawGizmos()
     {
