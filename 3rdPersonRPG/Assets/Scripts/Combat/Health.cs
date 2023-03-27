@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
 
     private int health;
+    private bool isInvulnerable;
 
     public event Action onTakeDamage;
 
@@ -18,9 +19,16 @@ public class Health : MonoBehaviour
         health = maxHealth;
     }
 
+    public void SetInvulnerable(bool isInvunerable)
+    {
+        this.isInvulnerable = isInvunerable;
+    }
+
     public void DealDamage(int damage)
     {
         if (health == 0) { return; }
+
+        if(isInvulnerable) { return; }   
 
         /*health -= damage;
 

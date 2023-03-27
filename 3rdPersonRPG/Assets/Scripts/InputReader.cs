@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
 {
     public bool isAttacking { get; private set; }
+    public bool isBlocking { get; private set; }
 
     public Vector2 movementValue { get; private set; }
 
@@ -80,6 +81,18 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions //Interface
         else if (context.canceled)
         {
             isAttacking = false;
+        }
+    }
+
+    public void OnBlock(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            isBlocking = true;
+        }
+        else if (context.canceled)
+        {
+            isBlocking = false;
         }
     }
 }
