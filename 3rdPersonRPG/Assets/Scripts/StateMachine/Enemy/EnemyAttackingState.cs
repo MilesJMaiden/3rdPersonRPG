@@ -21,7 +21,11 @@ public class EnemyAttackingState : EnemyBaseState
 
     public override void Tick(float deltaTime)
     {
-        
+        if(GetNormalizedTime(stateMachine.animator) >= 1) //How far we are through anim
+        {
+            stateMachine.SwitchState(new EnemyChasingState(stateMachine));
+        }
+
     }
 
     public override void Exit()
