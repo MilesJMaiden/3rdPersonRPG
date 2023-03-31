@@ -60,7 +60,7 @@ public class PlayerTargetingState : PlayerBaseState
     public override void Exit()
     {
         stateMachine.InputReader.CancelEvent -= OnCancel;
-        stateMachine.InputReader.DodgeEvent += OnDodge;
+        stateMachine.InputReader.DodgeEvent -= OnDodge;
     }
 
     private void OnCancel()
