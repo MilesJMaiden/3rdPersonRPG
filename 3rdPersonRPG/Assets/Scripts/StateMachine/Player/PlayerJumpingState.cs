@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerJumpingState : MonoBehaviour
+public class PlayerJumpingState : PlayerBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerJumpingState(PlayerStateMachine stateMachine) : base(stateMachine)
     {
-        
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Enter()
     {
-        
+
+    }
+
+    public override void Tick(float deltaTime)
+    {
+
+    }
+
+    public override void Exit()
+    {
+
     }
 }

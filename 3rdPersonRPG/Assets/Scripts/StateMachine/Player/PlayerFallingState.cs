@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFallingState : MonoBehaviour
+public class PlayerFallingState : PlayerBaseState
 {
-    // Start is called before the first frame update
-    void Start()
+    public PlayerFallingState(PlayerStateMachine stateMachine) : base(stateMachine){}
+
+    public override void Enter()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void Tick(float deltaTime)
     {
-        
+
+    }
+
+    public override void Exit()
+    {
+
     }
 }
