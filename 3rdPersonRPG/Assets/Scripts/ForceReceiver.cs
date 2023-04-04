@@ -7,22 +7,13 @@ public class ForceReceiver : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
     [SerializeField] private NavMeshAgent agent;
-
-    [SerializeField] private float drag = 0.1f;
+    [SerializeField] private float drag = 0.3f;
 
     private float verticalVelocity;
-
     private Vector3 dampingVelocity;
-
     private Vector3 impact;
 
     public Vector3 movement => impact + Vector3.up * verticalVelocity; //impact - knockback and external forces
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -52,9 +43,15 @@ public class ForceReceiver : MonoBehaviour
     public void AddForce(Vector3 force)
     {
         impact += force;
-        if(agent!= null) //disable agent while force is applied
+
+        if(agent != null) //disable agent while force is applied
         {
             agent.enabled = false;
         }
+    }
+
+    public void Jump(float jumpForce)
+    {
+        verticalVelocity += jumpForce;
     }
 }

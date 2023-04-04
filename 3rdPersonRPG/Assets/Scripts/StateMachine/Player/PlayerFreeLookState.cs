@@ -24,6 +24,7 @@ public class PlayerFreeLookState : PlayerBaseState
         //stateMachine.InputReader.jumpEvent += OnJump; //Subscribe
 
         stateMachine.InputReader.TargetEvent += OnTarget;
+        stateMachine.InputReader.JumpEvent += OnJump;
 
         stateMachine.animator.CrossFadeInFixedTime(freeLookBlendTreeHash, crossFadeDuration);
     }
@@ -60,7 +61,9 @@ public class PlayerFreeLookState : PlayerBaseState
         //Debug.Log("Exit");
         //stateMachine.InputReader.jumpEvent -= OnJump; //UNSubscribe
 
+        //unsub event
         stateMachine.InputReader.TargetEvent -= OnTarget;
+        stateMachine.InputReader.JumpEvent -= OnJump;
     }
 
     private void OnTarget()
@@ -70,6 +73,11 @@ public class PlayerFreeLookState : PlayerBaseState
         //Only enters the targetting state if we succesfully select a target
 
         stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
+    }
+
+    private void OnJump()
+    {
+        stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
     }
 
     private Vector3 CalculateMovement()

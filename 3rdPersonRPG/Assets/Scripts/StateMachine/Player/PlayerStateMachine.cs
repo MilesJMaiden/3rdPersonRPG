@@ -27,6 +27,8 @@ public class PlayerStateMachine : StateMachine //Right Side of the colon is what
 
     [field: SerializeField] public float playerRotationSpeed { get; private set; }
 
+    [field: SerializeField] public float jumpForce { get; private set; }
+
     [field: SerializeField] public float dodgeDuration { get; private set; }
 
     [field: SerializeField] public float dodgeDistance { get; private set; }
