@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1245370822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000029237017, y: 0.00000023841858, z: 8.13941}
+  m_LocalPosition: {x: -0.00000026696347, y: -0.00000011920929, z: 8.13941}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -342,16 +342,18 @@ MonoBehaviour:
     m_ParentHash: 756556552
   - m_Hash: 788460410
     m_ParentHash: 756556552
-  - m_Hash: -1259740017
+  - m_Hash: 785635608
     m_ParentHash: 756556552
-  - m_Hash: -1826034496
-    m_ParentHash: -1259740017
-  - m_Hash: 1351564281
-    m_ParentHash: -1259740017
-  - m_Hash: -936649895
-    m_ParentHash: -1259740017
-  - m_Hash: 1193680294
-    m_ParentHash: -1259740017
+  - m_Hash: 39159377
+    m_ParentHash: 785635608
+  - m_Hash: -795844632
+    m_ParentHash: 785635608
+  - m_Hash: -1575230257
+    m_ParentHash: 785635608
+  - m_Hash: -952534601
+    m_ParentHash: 785635608
+  - m_Hash: 276856813
+    m_ParentHash: 756556552
 --- !u!1 &5800803201069675320
 GameObject:
   m_ObjectHideFlags: 3
@@ -1195,41 +1197,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8773532385357787191}
     m_Modifications:
-    - target: {fileID: 3573709741430294366, guid: d04b9a51e2baa5a449e4eb618e3b43f2,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3573709741430294432, guid: d04b9a51e2baa5a449e4eb618e3b43f2,
-        type: 3}
-      propertyPath: <jumpForce>k__BackingField
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3573709741430294432, guid: d04b9a51e2baa5a449e4eb618e3b43f2,
-        type: 3}
-      propertyPath: <dodgeDistance>k__BackingField
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3573709741430294432, guid: d04b9a51e2baa5a449e4eb618e3b43f2,
-        type: 3}
-      propertyPath: <dodgeDuration>k__BackingField
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 5362678459112396224, guid: d04b9a51e2baa5a449e4eb618e3b43f2,
         type: 3}
       propertyPath: cinemachineTargetGroup
       value: 
       objectReference: {fileID: 1245370824}
-    - target: {fileID: 5864230370951605401, guid: d04b9a51e2baa5a449e4eb618e3b43f2,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5864230370951605401, guid: d04b9a51e2baa5a449e4eb618e3b43f2,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 7455835385645735204, guid: d04b9a51e2baa5a449e4eb618e3b43f2,
         type: 3}
       propertyPath: m_RootOrder
