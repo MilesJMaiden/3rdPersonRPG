@@ -6,7 +6,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Character_Viking_Warrior_02
+  m_Name: Character_Viking_Warrior
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
